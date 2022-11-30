@@ -1,0 +1,2 @@
+sqlalchemy==1.4.43
+rich==12.6.0
