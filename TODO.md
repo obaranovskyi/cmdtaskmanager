@@ -8,6 +8,8 @@
         https://stackoverflow.com/questions/11154946/require-either-of-two-arguments-using-argparse
 
 [FEATURES] Add task model. It should have the following properties:
+
+task:
     `task_id`
     `title`
     `description`
@@ -16,3 +18,12 @@
     `status not started | in progress | done`
     `date created`
     `due date`
+    `tags` - investigate how to add lists
+
+tags
+    `tag_id`,
+    `name`,
+
+status:
+    `status_id`,
+    `value` - `NotStarted` | `InProgress` | `Postponed` | `Completed`
