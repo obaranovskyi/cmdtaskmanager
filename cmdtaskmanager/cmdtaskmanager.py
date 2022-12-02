@@ -23,6 +23,9 @@ def main():
             for sv in STATUSES:
                 session.add(Status(value=sv))
 
+        tasks = session.query(Task).all()
+        print(tasks)
+
         # Adding tags
         # session.add(Tag(value='TestProject'))
         # session.add(Tag(value='RealProject'))

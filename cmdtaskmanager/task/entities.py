@@ -27,14 +27,9 @@ class Task(Base):
     tags = relationship('Tag', secondary=task_tag_table, back_populates='task')
 
     def __repr__(self):
-        return f"<Task(id={self.id}, "                       + \
-               f"title={self.title}, "                       + \
-               f"description={self.description}, "           + \
-               f"long_description={self.long_description}, " + \
-               f"priority={self.priority}, "                 + \
-               f"status={self.status}, "                     + \
-               ")>"
-    
+        return entity_to_repr(self, 'Task',
+            ['id', 'title', 'description', 'long_description', 'priority', 'status'])
+
 
 class Status(Base):
     __tablename__ = "status"
@@ -42,8 +37,7 @@ class Status(Base):
     value = Column(String, unique=True)
  
     def __repr__(self):
-        return entity_to_repr(
-            self, 'Status', ['id', 'value'])
+        return entity_to_repr(self, 'Status', ['id', 'value'])
 
 
 class Tag(Base):
