@@ -1,4 +1,4 @@
-from cmdtaskmanager.shared.json_file import write_json
+from ..shared.json_file import write_json
 from .consts import CONFIG_LOCATION, DEFAULT_CONFIG
 
 def setup_config():

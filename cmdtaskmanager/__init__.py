@@ -1,5 +1,6 @@
 __all__ = [
     'shared',
     'config',
-    'database'
+    'database',
+    'task',
 ]
