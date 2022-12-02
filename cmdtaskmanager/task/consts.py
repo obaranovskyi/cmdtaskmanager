@@ -1,0 +1,6 @@
+NOT_STARTED = 'Not Started'
+IN_PROGRESS = 'In Progress'
+POSTPONED = 'Postponed'
+COMPLETED = 'Completed'
+
+STATUSES = [ NOT_STARTED, IN_PROGRESS, POSTPONED, COMPLETED]

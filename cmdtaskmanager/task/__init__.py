@@ -1,4 +1,6 @@
 __all__  = [
+    'add_task_subparser',
+    'consts'
+    'entities',
     'subparsers',
-    'add_task_subparser'
 ]
