@@ -48,5 +48,6 @@ class StatusChangeReason(Base):
     modification_date = Column(DateTime, nullable=False)
 
     def __repr__(self):
-        return entity_to_repr(self, 'StatusChangeReason', ['id', 'reason'])
+        return entity_to_repr(self, 'StatusChangeReason',
+            ['id', 'reason', 'status_id', 'task_id', 'modification_date'])
 
