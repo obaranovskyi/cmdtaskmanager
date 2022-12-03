@@ -1,24 +1,20 @@
-import argparse
-from .config.consts import DB_LOCATION
 from .config.core import setup_config
-from .database.db_manager import DBManager
 from .task.subparsers import register_task_subparsers
 from .tag.entities import *
 from .project.entities import *
 from .task.entities import *
+from .database.db_manager import db
 from .task.core import setup_base_statuses
+from .shared.parser import parser
 
 
 def main():
     setup_config()
-    db_manager = DBManager(DB_LOCATION)
-    setup_base_statuses(db_manager.engine)
-    
-    parser = argparse.ArgumentParser(description='Your daily task manager.')
-    subparsers = parser.add_subparsers()
-    register_task_subparsers(subparsers)
+    setup_base_statuses()
+    register_task_subparsers()
     args = parser.parse_args()
     args.func(args)
+    db.end_session()
 
 
 if __name__ == '__main__':
