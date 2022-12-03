@@ -13,6 +13,7 @@ task_tag_table = Table(
 
 class Tag(Base):
     __tablename__ = "tag"
+
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True, nullable=False)
     task = relationship('Task', secondary=task_tag_table, back_populates='tags')

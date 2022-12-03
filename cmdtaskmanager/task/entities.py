@@ -30,6 +30,7 @@ class Task(Base):
 
 class Status(Base):
     __tablename__ = "status"
+
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True, nullable=False)
  
@@ -39,6 +40,7 @@ class Status(Base):
 
 class StatusChangeReason(Base):
     __tablename__ = "status_change_reason"
+
     id = Column(Integer, primary_key=True)
     reason = Column(String, nullable=False)
     status_id = Column(Integer, ForeignKey('status.id'), nullable=False)
