@@ -19,5 +19,5 @@ def add_task_subparser(subparsers):
                           type=lambda s: datetime.datetime.strptime(s, '%d-%m-%Y'),
                           required=False,
                           help='Date till when the task has to be finished. ' +
-                               'A format looks like this "Day-Month-Year". ' +
-                               'Here is an example: 10-11-2022')
+                               'A format looks like this "Year-Month-Day". ' +
+                               'Here is an example: 2022-10-11')

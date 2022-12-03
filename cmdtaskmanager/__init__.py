@@ -3,4 +3,6 @@ __all__ = [
     'config',
     'database',
     'task',
+    'project',
+    'tag'
 ]
