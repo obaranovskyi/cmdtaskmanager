@@ -1,8 +1,5 @@
 import datetime
-
-def handle_add_task(args):
-    print('in handle add task')
-    print(args)
+from .add_task import add_task as add_task_handler
 
 
 def add_task_subparser(subparsers):
@@ -31,4 +28,4 @@ def add_task_subparser(subparsers):
                           help='Date till when the task has to be finished. ' +
                                'A format looks like this "Year-Month-Day". ' +
                                'Here is an example: 2022-10-11')
-    add_task.set_defaults(func=handle_add_task)
+    add_task.set_defaults(func=add_task_handler)
