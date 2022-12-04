@@ -2,7 +2,7 @@ __all__  = [
     'add_task',
     'add_task_subparser',
     'consts'
-    'core',
+    'status_core',
     'entities',
     'subparsers',
     'remove_task',

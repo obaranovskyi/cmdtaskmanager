@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlalchemy.sql.schema import CheckConstraint, Column, ForeignKey
 from sqlalchemy.sql.sqltypes import Integer, String, DateTime, Text
 from sqlalchemy.orm import relationship
@@ -19,7 +20,7 @@ class Task(Base):
     project_id = Column(Integer, ForeignKey('project.id'))
     project = relationship('Project')
     tags = relationship('Tag', secondary=task_tag_table, back_populates='task')
-    date_created = Column(DateTime, nullable=False)
+    date_created = Column(DateTime, nullable=False, default=datetime.utcnow)
     finish_date = Column(DateTime)
 
     def __repr__(self):

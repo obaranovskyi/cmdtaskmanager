@@ -6,6 +6,5 @@
         https://stackoverflow.com/questions/64084200/how-to-parse-one-group-out-of-the-two-groups-of-command-line-arguments-using-arg
     exclusive groups:
         https://stackoverflow.com/questions/11154946/require-either-of-two-arguments-using-argparse
-
-[FEATURES] Add task model. It should have the following properties:
-
+    get id after insert discussion:
+        https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id

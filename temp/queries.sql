@@ -17,8 +17,10 @@ join task_tag as tt on tt.tag_id = t.id
 join task as tk on tk.id = tt.task_id
 where t.value = 'RealProject';
 
-
-/*drop table status;
+-- drop all tables
+drop table status_change_reason;
+drop table status;
 drop table task_tag;
 drop table tag;
-drop table task;*/
+drop table project;
+drop table task;

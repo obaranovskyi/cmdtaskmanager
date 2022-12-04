@@ -1,10 +1,10 @@
 from .config.core import setup_config
-from .task.subparsers import register_task_subparsers
-from .tag.entities import *
 from .project.entities import *
+from .tag.entities import *
 from .task.entities import *
 from .database.db_manager import db
-from .task.core import setup_base_statuses
+from .task.status_core import setup_base_statuses
+from .task.subparsers import register_task_subparsers
 from .shared.parser import parser
 
 
