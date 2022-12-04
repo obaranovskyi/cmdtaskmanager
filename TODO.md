@@ -9,21 +9,3 @@
 
 [FEATURES] Add task model. It should have the following properties:
 
-task:
-    `task_id`
-    `title`
-    `description`
-    `long_description`
-    `priority 1..10`
-    `status not started | in progress | done`
-    `date created`
-    `due date`
-    `tags` - investigate how to add lists
-
-tags
-    `tag_id`,
-    `name`,
-
-status:
-    `status_id`,
-    `value` - `NotStarted` | `InProgress` | `Postponed` | `Completed`
