@@ -8,3 +8,5 @@
         https://stackoverflow.com/questions/11154946/require-either-of-two-arguments-using-argparse
     get id after insert discussion:
         https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id
+
+[FEATURE] Add project status

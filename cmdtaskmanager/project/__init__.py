@@ -1,3 +1,8 @@
 __all__ = [
-    'entities'
+    'add_project',
+    'add_project_subparsers',
+    'core',
+    'entities',
+    'errors',
+    'subparsers',
 ]

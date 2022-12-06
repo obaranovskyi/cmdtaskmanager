@@ -4,5 +4,6 @@ __all__ = [
     'database',
     'task',
     'project',
-    'tag'
+    'tag',
+    'status'
 ]

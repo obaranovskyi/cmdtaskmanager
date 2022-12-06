@@ -1,4 +1,5 @@
-from sqlalchemy.sql.schema import Column
+from sqlalchemy.orm import relationship
+from sqlalchemy.sql.schema import Column, ForeignKey
 from sqlalchemy.sql.sqltypes import Integer, String, DateTime
 from ..shared.core import entity_to_repr
 from ..database.base import Base
@@ -10,6 +11,8 @@ class Project(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True, nullable=False)
     description = Column(String)
+    status_id = Column(Integer, ForeignKey('status.id'), nullable=False)
+    status = relationship('Status')
     finish_date = Column(DateTime)
  
     def __repr__(self):
