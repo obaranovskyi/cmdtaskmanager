@@ -10,3 +10,4 @@
         https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id
 
 [FEATURE] Consider adding full path handling for the long description
+[REFACTORING] Consider using single exception as all you need is `e.message`
