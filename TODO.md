@@ -10,3 +10,5 @@
         https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id
 
 [FEATURE] Add project status
+[TODO] Remove unneeded temp files
+[FEATURE] Consider adding full path handling for the long description

@@ -1,10 +1,11 @@
 from datetime import datetime
+
 from ..shared.file_core import get_file_content
 from ..status.core import get_not_started
 from ..project.core import get_project_by_name_or_id
 from ..database.db_manager import session
 from .entities import Task
-from .errors import InvalidTaskFinishDateError
+from .errors import InvalidTaskFinishDateError, InvalidTaskIdError
 
 
 def create_task(title, priority, description,
@@ -32,6 +33,17 @@ def create_task(title, priority, description,
         project=project
     )
     session.add(task)
+
+def get_task_by_id(task_id):
+    """
+        Raises:
+            - `InvalidTaskIdError` - When the task with a given id doesn't exist.
+    """
+    task = session.query(Task).filter(Task.id==task_id).one_or_none()
+    if not task:
+        raise InvalidTaskIdError()
+    return task
+
 
 def get_long_description_content(long_description):
     """
