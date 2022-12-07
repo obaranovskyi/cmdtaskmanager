@@ -43,7 +43,7 @@ class EntityNameAlreadyExists(Exception):
     def __init__(self, entity_name):
         self.entity_name = entity_name
         self.message = f'Given {entity_name} name is invalid. ' + \
-                       f'Most likely, a {entity_name} with such a name already exists.'
+                       f'Most likely, the {entity_name} with such a name already exists.'
         super().__init__(self.message)
 
 

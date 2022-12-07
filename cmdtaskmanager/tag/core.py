@@ -8,7 +8,7 @@ def create_tag(name):
     Raises:
         - `TagNameAlreadyExists` -- When a tag with such a name already exists.
     """
-    exists = session.query(Tag.name==name).one_or_none()
+    exists = session.query(Tag).filter(Tag.name==name).one_or_none()
     if exists:
         raise TagNameAlreadyExists()
     tag = Tag(name=name)
