@@ -10,6 +10,9 @@
 - get id after insert discussion:
     - https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id
 
+## TODO:
+    - add tag support
+
 ## Features
 - Consider adding full path handling for the long description
 
