@@ -1,3 +1,7 @@
 __all__ = [
-    'entities'
+    'add_tag',
+    'add_tag_subparser',
+    'core',
+    'entities',
+    'errors'
 ]

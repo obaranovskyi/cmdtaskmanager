@@ -1,3 +1,4 @@
+from cmdtaskmanager.project.errors import InvalidProjectFinishDateError, ProjectNameAlreadyExists
 from .core import create_project
 from ..shared.display import display_error
 
@@ -9,5 +10,7 @@ def add_project(args):
             description=args.description,
             finish_date=args.finish_date
         )
-    except Exception as e:
+    except InvalidProjectFinishDateError as e:
+        display_error(e.message)
+    except ProjectNameAlreadyExists as e:
         display_error(e.message)
