@@ -1,3 +1,4 @@
+from cmdtaskmanager.tag.errors import InvalidTagIdError
 from ..project.errors import InvalidProjectIdError, InvalidProjectNameError
 from ..shared.errors import IsNotFileError, NoSuchFileError
 from .errors import InvalidTaskFinishDateError
@@ -15,7 +16,8 @@ def add_task(args):
             finish_date=args.finish_date,
             project_name=args.project_name,
             project_id=args.project_id,
-            tag_names=args.tags
+            tag_names=args.tag_names,
+            tag_ids=args.tag_ids
         )
     except InvalidTaskFinishDateError as e:
         display_error(e.message)
@@ -26,4 +28,6 @@ def add_task(args):
     except InvalidProjectIdError as e:
         display_error(e.message)
     except InvalidProjectNameError as e:
+        display_error(e.message)
+    except InvalidTagIdError as e:
         display_error(e.message)

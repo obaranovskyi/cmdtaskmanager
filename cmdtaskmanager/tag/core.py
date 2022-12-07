@@ -28,8 +28,34 @@ def get_or_create_tags(tag_names=[]):
         tag = get_or_create_tag(tn)
         tags.append(tag)
     return tags
+
+def get_tags_by_names_or_ids(tag_names, tag_ids):
+    """
+    Raises:
+        - `InvalidTagIdError` -- When the tag with the given id doesn't exist.
+    """
+    tags = []
+    if tag_names:
+        tags = get_or_create_tags(tag_names)
+    if tag_ids:
+        tags = get_tags_by_ids(tag_ids)
+    return tags
+
+def get_tags_by_ids(tag_ids=[]):
+    """
+    Raises:
+        - `InvalidTagIdError` -- When the tag with the given id doesn't exist.
+    """
+    tags = session.query(Tag).filter(Tag.id.in_(tag_ids)).all()
+    if len(tags) != len(tag_ids):
+        raise InvalidTagIdError()
+    return tags
         
 def get_tag_by_id(tag_id):
+    """
+    Raises:
+        - `InvalidTagIdError` -- When the tag with the given id doesn't exist.
+    """
     tag = session.query(Tag).filter(Tag.id==tag_id).one_or_none();
     if not tag:
         raise InvalidTagIdError()
