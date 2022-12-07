@@ -11,7 +11,8 @@
     - https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id
 
 ## TODO:
-    - add tag support
+    - add display list support
+        not sure whether the command should include columns
 
 ## Features
 - Consider adding full path handling for the long description
