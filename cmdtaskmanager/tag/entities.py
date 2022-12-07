@@ -7,8 +7,8 @@ from ..database.base import Base
 task_tag_table = Table(
     "task_tag",
     Base.metadata,
-    Column("task_id", ForeignKey("tag.id"), primary_key=True),
-    Column("tag_id", ForeignKey("task.id"), primary_key=True),
+    Column("task_id", ForeignKey("task.id"), primary_key=True),
+    Column("tag_id", ForeignKey("tag.id"), primary_key=True),
 )
 
 class Tag(Base):

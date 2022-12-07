@@ -1,6 +1,8 @@
 from rich import print
 from rich.markdown import Markdown
 from rich.tree import Tree
+
+from ..tag.display_core import get_display_tags_tree
 from ..project.display_core import get_display_project_tree
 from ..status.display_core import get_display_status
 from ..shared.date_core import format_to_local_d, format_to_local_dt
@@ -15,7 +17,8 @@ def get_display_task_tree(task):
     task_tree = Tree(f"[{BLUE}] Task:")
     task_tree.add(f'[{GREEN}] Id: [{BLUE}]{task.id}')
     task_tree.add(f'[{GREEN}] Title: [{BLUE}]{task.title}')
-    task_tree.add(f'[{GREEN}] Description: [{BLUE}]{task.description}')
+    if task.description:
+        task_tree.add(f'[{GREEN}] Description: [{BLUE}]{task.description}')
     task_tree.add(f'[{GREEN}] Priority: [{BLUE}]{task.priority}')
     task_tree.add(get_display_status(task.status))
     task_tree.add(f'[{GREEN}] Date Created: [{BLUE}]{format_to_local_dt(task.date_created)}')
@@ -23,6 +26,8 @@ def get_display_task_tree(task):
         task_tree.add(f'[{GREEN}] Finish Date: [{BLUE}]{format_to_local_d(task.finish_date)}')
     if task.project:
         task_tree.add(get_display_project_tree(task.project))
+    if task.tags:
+        task_tree.add(get_display_tags_tree(task.tags))
     if task.long_description:
         task_tree.add(f'[{GREEN}] Long Description: \n')
         task_tree.add(Markdown(task.long_description))

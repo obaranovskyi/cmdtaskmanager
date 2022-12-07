@@ -1,4 +1,4 @@
-from cmdtaskmanager.project.errors import InvalidProjectFinishDateError, ProjectNameAlreadyExists
+from .errors import InvalidProjectFinishDateError, ProjectNameAlreadyExists
 from .core import create_project
 from ..shared.display import display_error
 

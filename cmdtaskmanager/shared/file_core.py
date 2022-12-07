@@ -1,7 +1,7 @@
 import os
 import json
 
-from cmdtaskmanager.shared.errors import IsNotFileError, NoSuchFileError
+from .errors import IsNotFileError, NoSuchFileError
 
 
 def write_json(file_location, json_content):

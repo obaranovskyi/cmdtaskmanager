@@ -1,4 +1,4 @@
-from cmdtaskmanager.shared.display import BLUE, GREEN, GREY, RED, YELLOW
+from ..shared.display import BLUE, GREEN, RED, YELLOW
 
 
 NOT_STARTED = 'Not Started'

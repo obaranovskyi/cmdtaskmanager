@@ -1,4 +1,4 @@
-from cmdtaskmanager.shared.display import display_error
+from ..shared.display import display_error
 from .errors import TagNameAlreadyExists
 from .core import create_tag
 

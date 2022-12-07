@@ -17,7 +17,7 @@ def add_task_subparser():
                           metavar='',
                           help='The task description might be taken from the markdown file you specify.')
     add_task.add_argument('-ts', '--tags', type=str, required=False,
-                          metavar='', nargs='*',
+                          metavar='', nargs='*', 
                           help='Related tags.')
     add_task.add_argument('-fd', '--finish-date',
                           metavar='',

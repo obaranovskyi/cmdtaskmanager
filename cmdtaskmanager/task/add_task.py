@@ -15,6 +15,7 @@ def add_task(args):
             finish_date=args.finish_date,
             project_name=args.project_name,
             project_id=args.project_id,
+            tag_names=args.tags
         )
     except InvalidTaskFinishDateError as e:
         display_error(e.message)

@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from ..tag.core import get_or_create_tags
 from ..shared.file_core import get_file_content
 from ..status.core import get_not_started
 from ..project.core import get_project_by_name_or_id
@@ -10,7 +11,7 @@ from .errors import InvalidTaskFinishDateError, InvalidTaskIdError
 
 def create_task(title, priority, description,
                 long_description, finish_date, project_id,
-                project_name):
+                project_name, tag_names):
     """
     Raises:
         - `InvalidTaskFinishDateError` -- When the task finish date isn't later than now.
@@ -19,10 +20,11 @@ def create_task(title, priority, description,
         - `InvalidProjectIdError` -- When the project with the given id doesn't exist.
         - `InvalidProjectNameError` -- When the project with the given name doesn't exist.
     """
-    if finish_date < datetime.now():
+    if finish_date and finish_date < datetime.now():
         raise InvalidTaskFinishDateError()
     long_description_content = get_long_description_content(long_description)
     project = get_project_by_name_or_id(project_id, project_name)
+    tags = get_or_create_tags(tag_names) if tag_names else []
     task = Task(
         title=title,
         priority=priority,
@@ -30,7 +32,8 @@ def create_task(title, priority, description,
         long_description=long_description_content,
         finish_date=finish_date,
         status=get_not_started(),
-        project=project
+        project=project,
+        tags=tags
     )
     session.add(task)
 
