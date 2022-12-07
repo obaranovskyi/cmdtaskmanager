@@ -1,3 +1,2 @@
-def remove_task(args):
+def display_task_list(args):
     print('Under construction.')
-

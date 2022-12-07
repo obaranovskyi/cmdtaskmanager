@@ -4,6 +4,8 @@ __all__  = [
     'core',
     'display_core',
     'display_task',
+    'display_task_list',
+    'display_task_list_subparser',
     'display_task_subparser',
     'entities',
     'errors',
