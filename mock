@@ -1,7 +1,14 @@
+# Add projects
 ./run add-project -n 'Project 1' -d 'Task 1 description' -fd '31-12-2023'
 ./run add-project -n 'Project 2' -d 'Task 2 description' -fd '07-12-2023'
 ./run add-project -n 'Project 3' -d 'Task 3 description' -fd '07-01-2023'
 
+# Add tags
+./run add-tag 'important'
+./run add-tag 'home-work'
+./run add-tag 'testing'
+
+# Add tasks
 ./run add-task 'Task 1' -d 'base description' -fd '12-12-2022' -pi 1 -ld 'TODO.md'
-./run add-task 'Task 1' -d 'base description' -fd '12-12-2022' -pi 1 -ts 'important' 'home work'
+./run add-task 'Task 1' -d 'base description' -fd '12-12-2022' -pi 1 -tns 'important' 'home-work'
 ./run add-task 'Task 1' -d 'base description' -fd '12-12-2022' -pi 2
