@@ -1,6 +1,3 @@
-from ..project.errors import InvalidProjectIdError, InvalidProjectNameError
-from ..shared.errors import IsNotFileError, NoSuchFileError
-from .errors import InvalidTaskFinishDateError
 from .core import create_task
 from ..shared.display import display_error
 
@@ -16,13 +13,5 @@ def add_task(args):
             project_name=args.project_name,
             project_id=args.project_id,
         )
-    except InvalidTaskFinishDateError as e:
-        display_error(e.message)
-    except NoSuchFileError as e:
-        display_error(e.message)
-    except IsNotFileError as e:
-        display_error(e.message)
-    except InvalidProjectIdError as e:
-        display_error(e.message)
-    except InvalidProjectNameError as e:
+    except Exception as e:
         display_error(e.message)
