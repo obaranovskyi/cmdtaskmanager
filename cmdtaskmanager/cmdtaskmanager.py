@@ -1,3 +1,4 @@
+import sys
 from .config.core import setup_config
 from .project.entities import *
 from .status.entities import *
@@ -10,6 +11,10 @@ from .task.subparsers import register_task_subparsers
 from .shared.parser import parser
 
 
+def set_default_to_help():
+    if len(sys.argv) == 1:
+        sys.argv.append('-h')
+
 def setup():
     setup_config()
     setup_base_statuses()
@@ -19,6 +24,7 @@ def register_subparsers():
     register_task_subparsers()
 
 def main():
+    set_default_to_help()
     setup()
     register_subparsers()
     args = parser.parse_args()

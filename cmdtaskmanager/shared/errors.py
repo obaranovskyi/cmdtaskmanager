@@ -18,7 +18,7 @@ class InvalidIdError(Exception):
     """
     def __init__(self, entity_name):
         self.entity_name = entity_name
-        self.message = f'Invalid id. An {entity_name} with such an id doesn\'t exist.'
+        self.message = f'Invalid id. The {entity_name} with such an id doesn\'t exist.'
         super().__init__(self.message)
 
 
@@ -30,7 +30,7 @@ class InvalidNameError(Exception):
     """
     def __init__(self, entity_name):
         self.entity_name = entity_name
-        self.message = f'Invalid name. An {entity_name} with such an name doesn\'t exist.'
+        self.message = f'Invalid name. The {entity_name} with such a name doesn\'t exist.'
         super().__init__(self.message)
 
 
