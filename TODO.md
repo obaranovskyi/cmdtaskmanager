@@ -18,6 +18,7 @@
     - consider adding create status feature (however, first think about status changes)
     - implement update functionality
     - implement remove functionality
+    - check command description
 
 ## Features
 - Consider adding full path handling for the long description

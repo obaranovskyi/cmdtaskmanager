@@ -1,5 +1,4 @@
-from sqlalchemy.sql.expression import asc
-from .errors import InvalidStatusIdError
+from .errors import InvalidStatusIdError, InvalidStatusNameError
 from .consts import NOT_STARTED, STATUSES
 from .entities import Status
 from ..database.db_manager import session
@@ -19,8 +18,15 @@ def setup_base_statuses():
             session.add(status)
 
 def get_status_by_name(name):
-    return session.query(Status) \
+    """
+    Raises:
+        - `InvalidStatusNameError` -- When a status with such a name doesn't exist.
+    """
+    status = session.query(Status) \
         .filter(Status.name==name).one_or_none()
+    if not status:
+        raise InvalidStatusNameError()
+    return status
 
 def get_not_started():
     return get_status_by_name(NOT_STARTED.name)
@@ -37,3 +43,13 @@ def get_status_by_id(status_id):
     if not status:
         raise InvalidStatusIdError()
     return status
+
+def get_status_by_name_or_id(status_name, status_id):
+    """
+    Raises:
+        - `InvalidStatusIdError` -- When the status with the given id doesn't exist.
+        - `InvalidStatusNameError` -- When a status with such a name doesn't exist.
+    """
+    if status_id:
+        return get_status_by_id(status_id)
+    return get_status_by_name(status_name)

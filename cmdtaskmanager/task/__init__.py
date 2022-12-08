@@ -12,4 +12,6 @@ __all__  = [
     'remove_task',
     'remove_task_subparser',
     'subparsers',
+    'update_task',
+    'update_task_subparser',
 ]
