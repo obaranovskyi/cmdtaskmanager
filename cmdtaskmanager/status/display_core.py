@@ -8,11 +8,11 @@ from ..shared.display import BLUE, GREEN, GREY, YELLOW, no_items_yet
 def get_display_status(status, include_label=False):
     label = f'[{GREEN}] Status: ' if include_label else ''
     sm = get_display_status_model_by_name(status.name)
-    return f'{label}{sm.color}{status.name}'
+    return f'{label}[{sm.color}]{status.name}'
 
 def display_status(status):
     sm = get_display_status_model_by_name(status.name)
-    print(f'[{GREEN}] Status: {sm.color}{status.name}')
+    print(f'[{GREEN}] Status: [{sm.color}]{status.name}')
 
 def display_status_list(statuses):
     if not statuses:

@@ -10,7 +10,12 @@ def setup_base_statuses():
         Status.name.in_(status_names)).all()
     if not len(res):
         for s in STATUSES:
-            session.add(Status(name=s.name, description=s.description))
+            status = Status(
+                name=s.name,
+                description=s.description,
+                color=s.color
+            )
+            session.add(status)
 
 def get_status_by_name(name):
     return session.query(Status) \

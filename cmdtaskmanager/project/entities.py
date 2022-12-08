@@ -19,5 +19,5 @@ class Project(Base):
  
     def __repr__(self):
         return entity_to_repr(self, 'Project',
-            ['id', 'name', 'description', 'date_created', 'finish_date'])
+            ['id', 'name', 'description', 'status', 'date_created', 'finish_date'])
 

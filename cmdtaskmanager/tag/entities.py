@@ -22,4 +22,5 @@ class Tag(Base):
     task = relationship('Task', secondary=task_tag_table, back_populates='tags')
     
     def __repr__(self):
-        return entity_to_repr(self, 'Tag', ['id', 'name'])
+        return entity_to_repr(self, 'Tag',
+            ['id', 'name', 'description', 'date_created'])
