@@ -1,4 +1,5 @@
 from sqlalchemy.sql.expression import asc
+from .errors import InvalidStatusIdError
 from .consts import NOT_STARTED, STATUSES
 from .entities import Status
 from ..database.db_manager import session
@@ -26,3 +27,13 @@ def get_not_started():
 
 def get_statuses_to_display(limit):
     return session.query(Status).order_by(asc(Status.id)).limit(limit).all()
+
+def get_status_by_id(status_id):
+    """
+    Raises:
+        - `InvalidStatusIdError` -- When the status with the given id doesn't exist.
+    """
+    status = session.query(Status).filter(Status.id==status_id).one_or_none();
+    if not status:
+        raise InvalidStatusIdError()
+    return status
