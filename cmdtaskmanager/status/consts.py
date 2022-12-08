@@ -8,7 +8,6 @@ POSTPONED = StatusModel('Postponed', 'The task is postponed.', YELLOW)
 REMOVED = StatusModel('Removed', 'The task is removed as it\'s not relevant anymore.', RED)
 COMPLETED = StatusModel('Completed', 'The task is done.', GREEN)
 
-
 STATUSES = [
     NOT_STARTED, IN_PROGRESS,
-    POSTPONED, REMOVED, COMPLETED]
+    COMPLETED, POSTPONED, REMOVED]
