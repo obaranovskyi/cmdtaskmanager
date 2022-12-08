@@ -13,7 +13,7 @@ def add_project_subparser():
                           help='Project description.')
     add_project.add_argument('-fd', '--finish-date',
                           metavar='',
-                          type=lambda s: datetime.datetime.strptime(s, '%d-%m-%Y'),
+                          type=lambda s: datetime.datetime.strptime(s, '%Y-%m-%d'),
                           required=False,
                           help='Date till when the project has to be finished. ' +
                                'A format looks like this "Year-Month-Day". ' +

@@ -13,3 +13,6 @@ def display_info(message):
 def display_error(message):
     print(f"[{RED}]{message}")
 
+
+def no_items_yet(plural_entity_name):
+    display_error(f"No {plural_entity_name} yet.")

@@ -1,4 +1,6 @@
 from datetime import datetime
+
+from sqlalchemy.sql.expression import desc
 from .errors import *
 from ..status.core import get_not_started
 from .entities import Project
@@ -55,3 +57,6 @@ def get_project_by_name_or_id(project_id, project_name):
     if project_id:
         return get_project_by_id(project_id)
     return get_project_by_name(project_name)
+
+def get_projects_to_display(limit):
+    return session.query(Project).order_by(desc(Project.date_created)).limit(limit).all()

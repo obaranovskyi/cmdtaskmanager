@@ -1,4 +1,4 @@
-from cmdtaskmanager.tag.errors import InvalidTagIdError
+from ..tag.errors import InvalidTagIdError
 from ..project.errors import InvalidProjectIdError, InvalidProjectNameError
 from ..shared.errors import IsNotFileError, NoSuchFileError
 from .errors import InvalidTaskFinishDateError

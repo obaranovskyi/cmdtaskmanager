@@ -14,6 +14,7 @@
     - add display list support
         not sure whether the command should include columns
     - consider adding raw tasks (for piping)
+    - status for the project should be started when some of the project taks started
 
 ## Features
 - Consider adding full path handling for the long description

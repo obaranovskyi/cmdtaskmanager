@@ -1,14 +1,13 @@
 from rich import print
 from rich.markdown import Markdown
 from rich.tree import Tree
-from rich.console import Console
 from rich.table import Table
 from ..shared.consts import EMPTY_TABLE_CELL
 from ..tag.display_core import get_display_tags_tree
 from ..project.display_core import get_display_project_tree
 from ..status.display_core import get_display_status
 from ..shared.date_core import format_to_local_d, format_to_local_dt
-from ..shared.display import GREEN, BLUE, GREY, RED, YELLOW
+from ..shared.display import GREEN, BLUE, GREY, RED, YELLOW, no_items_yet
 
 
 def display_task(task):
@@ -37,6 +36,9 @@ def get_display_task_tree(task):
 
 
 def display_task_list(tasks):
+    if not tasks:
+        no_items_yet('tasks')
+        return
     task_table = Table('Id', style=GREY, header_style=YELLOW)
     task_table.add_column('Title', style=GREEN)
     task_table.add_column('Priority', style=BLUE)
