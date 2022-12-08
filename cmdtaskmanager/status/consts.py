@@ -1,20 +1,14 @@
+from .models import StatusModel
 from ..shared.display import BLUE, GREEN, GREY, RED, YELLOW
 
 
-NOT_STARTED = 'Not Started'
-IN_PROGRESS = 'In Progress'
-POSTPONED = 'Postponed'
-REMOVED = 'Closed'
-COMPLETED = 'Completed'
+NOT_STARTED = StatusModel('Not Started', 'The task is not started yet.', f'[{GREY}]')
+IN_PROGRESS = StatusModel('In progress', 'The task is in progress.', f'[{BLUE}]')
+POSTPONED = StatusModel('Postponed', 'The task is postponed.', f'[{YELLOW}]')
+REMOVED = StatusModel('Removed', 'The task is removed as it\'s not relevant anymore.', f'[{RED}]')
+COMPLETED = StatusModel('Completed', 'The task is done.', f'[{GREEN}]')
+
 
 STATUSES = [
     NOT_STARTED, IN_PROGRESS,
     POSTPONED, REMOVED, COMPLETED]
-
-
-STATUS_COLORS = dict()
-STATUS_COLORS[NOT_STARTED] = f'[{GREY}]'
-STATUS_COLORS[IN_PROGRESS] = f'[{BLUE}]'
-STATUS_COLORS[POSTPONED] = f'[{YELLOW}]'
-STATUS_COLORS[REMOVED] = f'[{RED}]'
-STATUS_COLORS[COMPLETED] = f'[{GREEN}]'

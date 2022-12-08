@@ -31,10 +31,10 @@ def display_tag_list(tags):
     tag_table = Table('Id', style=GREY, header_style=YELLOW)
     tag_table.add_column('Name', style=GREEN)
     tag_table.add_column('Description', style=BLUE)
-    for p in tags:
+    for t in tags:
         tag_table.add_row(
-            str(p.id),
-            p.name,
-            p.description,
+            str(t.id),
+            t.name,
+            t.description,
         )
     print(tag_table)

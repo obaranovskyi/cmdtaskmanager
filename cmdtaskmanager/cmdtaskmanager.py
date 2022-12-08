@@ -7,6 +7,7 @@ from .tag.entities import *
 from .task.entities import *
 from .database.db_manager import db
 from .status.core import setup_base_statuses
+from .status.subparsers import register_status_subparsers
 from .tag.subparsers import register_tag_subparsers
 from .project.subparsers import register_project_subparsers
 from .task.subparsers import register_task_subparsers
@@ -25,6 +26,7 @@ def register_subparsers():
     register_project_subparsers()
     register_task_subparsers()
     register_tag_subparsers()
+    register_status_subparsers()
 
 def main():
     set_default_to_help()
