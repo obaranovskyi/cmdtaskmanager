@@ -1,5 +1,6 @@
+from datetime import datetime
 from sqlalchemy.sql.schema import Column, ForeignKey, Table
-from sqlalchemy.sql.sqltypes import Integer, String
+from sqlalchemy.sql.sqltypes import DateTime, Integer, String
 from sqlalchemy.orm import relationship
 from ..shared.core import entity_to_repr
 from ..database.base import Base
@@ -16,6 +17,8 @@ class Tag(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True, nullable=False)
+    description = Column(String)
+    date_created = Column(DateTime, nullable=False, default=datetime.utcnow)
     task = relationship('Task', secondary=task_tag_table, back_populates='tags')
     
     def __repr__(self):

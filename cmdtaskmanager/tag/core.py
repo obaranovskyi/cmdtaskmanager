@@ -1,9 +1,10 @@
+from sqlalchemy.sql.expression import desc
 from .errors import TagNameAlreadyExists, InvalidTagIdError
 from .entities import Tag
 from ..database.db_manager import session
 
 
-def create_tag(name):
+def create_tag(name, description):
     """
     Raises:
         - `TagNameAlreadyExists` -- When a tag with such a name already exists.
@@ -11,7 +12,7 @@ def create_tag(name):
     exists = session.query(Tag).filter(Tag.name==name).one_or_none()
     if exists:
         raise TagNameAlreadyExists()
-    tag = Tag(name=name)
+    tag = Tag(name=name, description=description)
     session.add(tag)
 
 def get_or_create_tag(tag_name):
@@ -62,3 +63,5 @@ def get_tag_by_id(tag_id):
     return tag
 
 
+def get_tags_to_display(limit):
+    return session.query(Tag).order_by(desc(Tag.date_created)).limit(limit).all()
