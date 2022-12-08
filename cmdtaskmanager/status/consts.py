@@ -1,4 +1,4 @@
-from ..shared.display import BLUE, GREEN, RED, YELLOW
+from ..shared.display import BLUE, GREEN, GREY, RED, YELLOW
 
 
 NOT_STARTED = 'Not Started'
@@ -13,7 +13,7 @@ STATUSES = [
 
 
 STATUS_COLORS = dict()
-STATUS_COLORS[NOT_STARTED] = f'[{"#BEBEBE"}]'
+STATUS_COLORS[NOT_STARTED] = f'[{GREY}]'
 STATUS_COLORS[IN_PROGRESS] = f'[{BLUE}]'
 STATUS_COLORS[POSTPONED] = f'[{YELLOW}]'
 STATUS_COLORS[REMOVED] = f'[{RED}]'

@@ -18,7 +18,7 @@ def add_task_subparser():
                           help='The task description might be taken from the markdown file you specify.')
     add_task.add_argument('-fd', '--finish-date',
                           metavar='',
-                          type=lambda s: datetime.datetime.strptime(s, '%d-%m-%Y'),
+                          type=lambda s: datetime.datetime.strptime(s, '%Y-%m-%d'),
                           required=False,
                           help='Date till when the task has to be finished. ' +
                                'A format looks like this "Year-Month-Day". ' +

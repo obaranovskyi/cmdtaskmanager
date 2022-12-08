@@ -5,3 +5,4 @@ def entity_to_repr(entity, name, keys):
     return f"<{name}(" + \
            ", ".join(key_value) + \
            f")>"
+

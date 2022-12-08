@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from sqlalchemy import desc
 from ..tag.core import get_tags_by_names_or_ids
 from ..shared.file_core import get_file_content
 from ..status.core import get_not_started
@@ -59,3 +60,5 @@ def get_long_description_content(long_description):
         if long_description \
         else None
 
+def get_tasks_to_display(limit):
+    return session.query(Task).order_by(desc(Task.date_created)).limit(limit).all()

@@ -13,6 +13,7 @@
 ## TODO:
     - add display list support
         not sure whether the command should include columns
+    - consider adding raw tasks (for piping)
 
 ## Features
 - Consider adding full path handling for the long description
