@@ -21,6 +21,7 @@
     - implement remove functionality
     - check command description
     - add ignorecase checks to unique updates and creates
+    - refactor/reuse `get_by_id` methods
 
 ## Features
 - Consider adding full path handling for the long description

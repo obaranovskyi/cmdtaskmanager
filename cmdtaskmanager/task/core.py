@@ -54,9 +54,7 @@ def update_task(task_id, title, priority, description,
         - `InvalidStatusIdError` -- When the status with the given id doesn't exist.
         - `InvalidStatusNameError` -- When a status with such a name doesn't exist.
     """
-    task_to_update = session.query(Task).filter(Task.id==task_id).one_or_none()
-    if not task_to_update:
-        raise InvalidTaskIdError()
+    task_to_update = get_task_by_id(task_id)
     if finish_date and finish_date < datetime.now():
         raise InvalidTaskFinishDateError()
     task_to_update.finish_date = finish_date if finish_date else task_to_update.finish_date
@@ -71,6 +69,15 @@ def update_task(task_id, title, priority, description,
         task_to_update.project = get_project_by_name_or_id(project_id, project_name)
     if tag_names or tag_ids:
         task_to_update.tags = get_tags_by_names_or_ids(tag_names, tag_ids)
+    session.commit()
+
+def remove_task(task_id):
+    """
+        Raises:
+            - `InvalidTaskIdError` - When the task with a given id doesn't exist.
+    """
+    task = get_task_by_id(task_id)
+    session.delete(task)
     session.commit()
 
 def get_task_by_id(task_id):
