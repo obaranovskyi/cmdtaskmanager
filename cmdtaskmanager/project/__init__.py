@@ -10,4 +10,6 @@ __all__ = [
     'entities',
     'errors',
     'subparsers',
+    'update_project',
+    'update_project_subparser',
 ]

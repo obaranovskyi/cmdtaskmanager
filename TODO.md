@@ -11,6 +11,7 @@
     - https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id
 
 ## TODO:
+    - update exception blocks
     - add display list support
         not sure whether the command should include columns
     - consider adding raw tasks (for piping)

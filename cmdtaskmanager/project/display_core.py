@@ -15,7 +15,8 @@ def get_display_project_tree(project):
     project_tree = Tree(f'[{BLUE}] Project:')
     project_tree.add(f'[{GREEN}] Id: [{BLUE}]{project.id}')
     project_tree.add(f'[{GREEN}] Name: [{BLUE}]{project.name}')
-    project_tree.add(f'[{GREEN}] Description: [{BLUE}]{project.description}')
+    if project.description:
+        project_tree.add(f'[{GREEN}] Description: [{BLUE}]{project.description}')
     project_tree.add(get_display_status(project.status, True))
     project_tree.add(f'[{GREEN}] Date Created: [{BLUE}]{format_to_local_dt(project.date_created)}')
     if project.finish_date:
