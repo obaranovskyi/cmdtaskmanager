@@ -10,7 +10,6 @@ def add_project(args):
             description=args.description,
             finish_date=args.finish_date
         )
-    except InvalidProjectFinishDateError as e:
-        display_error(e.message)
-    except ProjectNameAlreadyExists as e:
+    except (InvalidProjectFinishDateError,
+            ProjectNameAlreadyExists) as e:
         display_error(e.message)

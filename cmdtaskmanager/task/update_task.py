@@ -23,21 +23,13 @@ def update_task(args):
             tag_names=args.tag_names,
             tag_ids=args.tag_ids
         )
-    except InvalidTaskIdError as e:
-        display_error(e.message)
-    except InvalidTaskFinishDateError as e:
-        display_error(e.message)
-    except NoSuchFileError as e:
-        display_error(e.message)
-    except IsNotFileError as e:
-        display_error(e.message)
-    except InvalidProjectIdError as e:
-        display_error(e.message)
-    except InvalidProjectNameError as e:
-        display_error(e.message)
-    except InvalidTagIdError as e:
-        display_error(e.message)
-    except InvalidStatusIdError as e:
-        display_error(e.message)
-    except InvalidStatusNameError as e:
+    except (InvalidTaskIdError,
+            InvalidTaskFinishDateError,
+            NoSuchFileError,
+            IsNotFileError,
+            InvalidProjectIdError,
+            InvalidProjectNameError,
+            InvalidTagIdError,
+            InvalidStatusIdError,
+            InvalidStatusNameError) as e:
         display_error(e.message)

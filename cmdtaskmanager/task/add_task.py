@@ -19,15 +19,10 @@ def add_task(args):
             tag_names=args.tag_names,
             tag_ids=args.tag_ids
         )
-    except InvalidTaskFinishDateError as e:
-        display_error(e.message)
-    except NoSuchFileError as e:
-        display_error(e.message)
-    except IsNotFileError as e:
-        display_error(e.message)
-    except InvalidProjectIdError as e:
-        display_error(e.message)
-    except InvalidProjectNameError as e:
-        display_error(e.message)
-    except InvalidTagIdError as e:
+    except (InvalidTaskFinishDateError,
+            NoSuchFileError,
+            IsNotFileError,
+            InvalidProjectIdError,
+            InvalidProjectNameError,
+            InvalidTagIdError) as e:
         display_error(e.message)
