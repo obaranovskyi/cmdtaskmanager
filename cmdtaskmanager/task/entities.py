@@ -4,7 +4,7 @@ from sqlalchemy.sql.sqltypes import Integer, String, DateTime, Text
 from sqlalchemy.orm import relationship
 from ..shared.core import entity_to_repr
 from ..database.base import Base
-from ..tag.entities import task_tag_table
+from ..tag.entities import task_tag
 
 
 class Task(Base):
@@ -19,7 +19,7 @@ class Task(Base):
     status = relationship('Status')
     project_id = Column(Integer, ForeignKey('project.id'))
     project = relationship('Project')
-    tags = relationship('Tag', secondary=task_tag_table, back_populates='task')
+    tags = relationship('Tag', secondary=task_tag, back_populates='task')
     date_created = Column(DateTime, nullable=False, default=datetime.utcnow)
     finish_date = Column(DateTime)
 

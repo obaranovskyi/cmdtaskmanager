@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy.sql.expression import desc
+from sqlalchemy.sql.expression import and_, desc
 from ..tag.core import get_tags_by_names_or_ids
 from ..shared.file_core import get_file_content
 from ..status.core import get_not_started, get_status_by_name_or_id
@@ -106,3 +106,9 @@ def get_tasks_to_display(limit):
 
 def get_tasks_by_project_id(project_id):
     return session.query(Task).filter(Task.project.has(id=project_id)).all()
+
+def get_tasks_by_tag_id(tag_id):
+    from ..tag.entities import task_tag, Tag
+    query_task_tag = session.query(Task).join(task_tag).join(Tag)
+    tasks = query_task_tag.filter(task_tag.c.tag_id==tag_id)
+    return tasks.all()

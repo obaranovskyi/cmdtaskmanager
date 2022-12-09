@@ -29,3 +29,8 @@
 ## Refactoring
 - Consider using single exception as all you need is `e.message`
 
+
+## Important: investigate this approach: 
+- https://stackoverflow.com/questions/41270319/how-do-i-query-an-association-table-in-sqlalchemy
+- need to revisit, and understand it more
+- c - stands for the column

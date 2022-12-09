@@ -24,3 +24,19 @@ drop table task_tag;
 drop table tag;
 drop table project;
 drop table task;
+
+
+-- Find add tasks that have tag with the given id
+SELECT task.id AS task_id, 
+       task.title AS task_title, 
+       task.description AS task_description, 
+       task.long_description AS task_long_description, 
+       task.priority AS task_priority, 
+       task.status_id AS task_status_id, 
+       task.project_id AS task_project_id, 
+       task.date_created AS task_date_created, 
+       task.finish_date AS task_finish_date
+FROM task 
+JOIN task_tag ON task.id = task_tag.task_id 
+JOIN tag ON tag.id = task_tag.tag_id
+WHERE task_tag.tag_id = 1;

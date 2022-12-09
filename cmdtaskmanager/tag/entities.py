@@ -5,7 +5,7 @@ from sqlalchemy.orm import relationship
 from ..shared.core import entity_to_repr
 from ..database.base import Base
 
-task_tag_table = Table(
+task_tag = Table(
     "task_tag",
     Base.metadata,
     Column("task_id", ForeignKey("task.id"), primary_key=True),
@@ -19,7 +19,7 @@ class Tag(Base):
     name = Column(String, unique=True, nullable=False)
     description = Column(String)
     date_created = Column(DateTime, nullable=False, default=datetime.utcnow)
-    task = relationship('Task', secondary=task_tag_table, back_populates='tags')
+    task = relationship('Task', secondary=task_tag, back_populates='tags')
     
     def __repr__(self):
         return entity_to_repr(self, 'Tag',

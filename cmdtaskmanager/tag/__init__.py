@@ -9,6 +9,8 @@ __all__ = [
     'display_tag_subparsers',
     'entities',
     'errors',
+    'remove_tag',
+    'remove_tag_subparser',
     'subparser',
     'update_tag',
     'update_tag_subparsers',

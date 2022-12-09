@@ -53,7 +53,7 @@ def remove_project(project_id):
     """
         Raises:
             - `InvalidProjectIdError` -- When the project with the given id doesn't exist.
-            - `ProjectRemoveIsImpossibleDueToDependenciesError` - When the project can't be removed due to dependencies.
+            - `ProjectHasTaskDependencies` - When the project can't be removed due to dependencies.
     """
     from ..task.core import get_tasks_by_project_id
     project = get_project_by_id(project_id)

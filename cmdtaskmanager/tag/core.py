@@ -1,5 +1,6 @@
 from sqlalchemy.sql.expression import and_, desc
-from .errors import TagNameAlreadyExists, InvalidTagIdError
+
+from .errors import TagHasTaskDependencies, TagNameAlreadyExists, InvalidTagIdError
 from .entities import Tag
 from ..database.db_manager import session
 
@@ -22,15 +23,27 @@ def update_tag(tag_id, name, description):
         - `TagNameAlreadyExists` -- When a tag with such a name already exists.
         - `InvalidTagIdError` -- When the tag with the given id doesn't exist.
     """
-    tag_to_update = session.query(Tag).filter(Tag.id==tag_id).one_or_none()
-    if not tag_to_update:
-        raise InvalidTagIdError()
+    tag_to_update = get_tag_by_id(tag_id)
     if name:
         exists = session.query(Tag).filter(and_(Tag.name==name, Tag.id!=tag_id)).one_or_none()
         if exists:
             raise TagNameAlreadyExists()
     tag_to_update.name = name or tag_to_update.name
     tag_to_update.description = description or tag_to_update.description
+    session.commit()
+
+def remove_tag(tag_id):
+    """
+    Raises:
+        - `InvalidTagIdError` -- When the tag with the given id doesn't exist.
+        - `TagHasTaskDependencies` - When the project can't be removed due to dependencies.
+    """
+    from ..task.core import get_tasks_by_tag_id
+    tag_to_remove = get_tag_by_id(tag_id)
+    tasks = get_tasks_by_tag_id(tag_to_remove.id)
+    if tasks:
+        raise TagHasTaskDependencies(tasks)
+    session.delete(tag_to_remove)
     session.commit()
 
 def get_or_create_tag(tag_name):
@@ -80,6 +93,6 @@ def get_tag_by_id(tag_id):
         raise InvalidTagIdError()
     return tag
 
-
 def get_tags_to_display(limit):
     return session.query(Tag).order_by(desc(Tag.date_created)).limit(limit).all()
+
