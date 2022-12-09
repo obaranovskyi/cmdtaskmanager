@@ -103,3 +103,6 @@ def get_long_description_content(long_description):
 
 def get_tasks_to_display(limit):
     return session.query(Task).order_by(desc(Task.date_created)).limit(limit).all()
+
+def get_tasks_by_project_id(project_id):
+    return session.query(Task).filter(Task.project.has(id=project_id)).all()

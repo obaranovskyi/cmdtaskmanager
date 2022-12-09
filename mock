@@ -1,7 +1,7 @@
 # Add projects
-./run add-project -n 'Project 1' -d 'Task 1 description' -fd '2023-11-12'
+./run add-project -n 'Project 1' -d 'Project 1 description' -fd '2023-11-12'
 ./run add-project -n 'Project 2' -fd '2023-07-12'
-./run add-project -n 'Project 3' -d 'Task 3 description' -fd '2023-07-01'
+./run add-project -n 'Project 3' -d 'Project 3 description' -fd '2023-07-01'
 
 # Add tags
 ./run add-tag 'important' 

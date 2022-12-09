@@ -71,4 +71,20 @@ class IsNotFileError(Exception):
         super().__init__(self.message)
 
 
-        
+class EntityHasDependencyError(Exception):
+    """An exception is raised when the entity that has to be removed but it has the dependencies.
+
+    Attributes:
+        filename -- The filename that was given.
+    """
+    def __init__(self, entity_name, entities, display_fn):
+        self.entity_name = entity_name
+        self.entities = entities
+        self.display_fn = display_fn
+        self.message = f'The {entity_name} can\'t be removed due to the following dependencies.'
+        super().__init__(self.message)
+
+    def display_dependencies(self):
+        self.display_fn(self.entities)
+
+    

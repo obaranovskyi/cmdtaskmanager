@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from sqlalchemy.sql.expression import and_, desc
 from .errors import *
 from ..status.core import get_not_started, get_status_by_name_or_id
@@ -35,9 +34,7 @@ def update_project(project_id, name, description, finish_date, status_id, status
         - `InvalidStatusIdError` -- When the status with the given id doesn't exist.
         - `InvalidStatusNameError` -- When a status with such a name doesn't exist.
     """
-    project_to_update = session.query(Project).filter(Project.id==project_id).one_or_none()
-    if not project_to_update:
-        raise InvalidProjectIdError()
+    project_to_update = get_project_by_id(project_id)
     if finish_date and finish_date < datetime.now():
         raise InvalidProjectFinishDateError()
     if name:
@@ -50,6 +47,20 @@ def update_project(project_id, name, description, finish_date, status_id, status
     project_to_update.finish_date = finish_date or project_to_update.finish_date
     if status_name or status_id:
         project_to_update.status = get_status_by_name_or_id(status_name, status_id)
+    session.commit()
+
+def remove_project(project_id):
+    """
+        Raises:
+            - `InvalidProjectIdError` -- When the project with the given id doesn't exist.
+            - `ProjectRemoveIsImpossibleDueToDependenciesError` - When the project can't be removed due to dependencies.
+    """
+    from ..task.core import get_tasks_by_project_id
+    project = get_project_by_id(project_id)
+    tasks = get_tasks_by_project_id(project.id)
+    if tasks:
+        raise ProjectHasTaskDependencies(tasks)
+    session.delete(project)
     session.commit()
 
 def get_project_by_name(name):
