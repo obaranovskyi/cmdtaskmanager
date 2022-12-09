@@ -40,10 +40,11 @@ def update_project(project_id, name, description, finish_date, status_id, status
         raise InvalidProjectIdError()
     if finish_date and finish_date < datetime.now():
         raise InvalidProjectFinishDateError()
-    exists = session.query(Project).filter(
-        and_(Project.name==name, Project.id!=project_id)).one_or_none()
-    if exists:
-        raise ProjectNameAlreadyExists()
+    if name:
+        exists = session.query(Project).filter(
+            and_(Project.name==name, Project.id!=project_id)).one_or_none()
+        if exists:
+            raise ProjectNameAlreadyExists()
     project_to_update.name = name or project_to_update.name
     project_to_update.description = description or project_to_update.description
     project_to_update.finish_date = finish_date or project_to_update.finish_date

@@ -20,6 +20,7 @@
     - implement update functionality
     - implement remove functionality
     - check command description
+    - add ignorecase checks to unique updates and creates
 
 ## Features
 - Consider adding full path handling for the long description
