@@ -15,12 +15,11 @@
     - consider adding raw tasks (for piping)
     - status for the project should be started when some of the project task started
     - consider adding create status feature (to me it looks more to not add it)
-    - check command description
     - add ignorecase checks to unique updates and creates
-    - refactor/reuse `get_by_id` methods
 
 ## Features
-- Consider adding full path handling for the long description
+- [1] Add comment feature
+- [5] Consider adding full path handling for the long description
 
 ## Refactoring
 - Consider using single exception as all you need is `e.message`
