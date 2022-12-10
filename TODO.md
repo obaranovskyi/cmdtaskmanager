@@ -17,10 +17,12 @@
     - consider adding create status feature (to me it looks more to not add it)
     - add ignorecase checks to unique updates and creates
 
-## Features
+## Features to add
 - [1] Add comment feature
 - [5] Consider adding full path handling for the long description
 - [4] Search task by includes
+- [3] Show project tasks
+- [3] Show projects by tag
 
 ## Refactoring
 - Consider using single exception as all you need is `e.message`
