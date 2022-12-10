@@ -20,6 +20,7 @@
 ## Features
 - [1] Add comment feature
 - [5] Consider adding full path handling for the long description
+- [4] Search task by includes
 
 ## Refactoring
 - Consider using single exception as all you need is `e.message`
