@@ -23,6 +23,7 @@
 - [4] Search task by includes
 - [3] Show project tasks
 - [3] Show projects by tag
+- [2] Add status change commands (status-start-task, status-remove-task, etc)
 
 ## Refactoring
 - Consider using single exception as all you need is `e.message`
