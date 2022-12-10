@@ -11,14 +11,10 @@
     - https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id
 
 ## TODO:
-    - update exception blocks
-    - add display list support
-        not sure whether the command should include columns
+    - add task comments feature
     - consider adding raw tasks (for piping)
     - status for the project should be started when some of the project task started
-    - consider adding create status feature (however, first think about status changes)
-    - implement update functionality
-    - implement remove functionality
+    - consider adding create status feature (to me it looks more to not add it)
     - check command description
     - add ignorecase checks to unique updates and creates
     - refactor/reuse `get_by_id` methods
