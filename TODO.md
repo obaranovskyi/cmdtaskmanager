@@ -2,20 +2,16 @@
 - get id after insert discussion:
     - https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id
 
-## TODO:
-    - add task comments feature
-    - consider adding raw tasks (for piping)
-    - status for the project should be started when some of the project task started
-    - consider adding create status feature (to me it looks more to not add it)
-    - add ignorecase checks to unique updates and creates
-
 ## Features to add
 - [1] Add comment feature
 - [3] Search task by includes. It has to be included into display features.
 - [3] Show project tasks
 - [3] Show tasks by tag
 - [2] Add status change commands (status-start-task, status-remove-task, etc)
-- [10] Consider adding full path handling for the long description
+- [5] Consider adding full path handling for the long description
+- [8] Consider adding the raw tasks display features for the piping
+- [10] Consider adding add status feature (more no than yes)
+- [2] Status of the project should be updated once one of its tasks is started
 
 ## Important: investigate this approach: 
 - https://stackoverflow.com/questions/41270319/how-do-i-query-an-association-table-in-sqlalchemy
