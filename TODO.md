@@ -3,7 +3,7 @@
     - https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id
 
 ## Todo list
-- [1] Add comment feature
+- [2] Add comment feature
 - [3] Search task by includes. It has to be included into display features.
 - [3] Show project tasks
 - [3] Show tasks by tag
