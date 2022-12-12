@@ -4,6 +4,8 @@ __all__ = [
     'core',
     'entities',
     'errors',
+    'remove_comment',
+    'remove_comment_subparser',
     'subparsers',
     'update_comment',
     'update_comment_subparser',
