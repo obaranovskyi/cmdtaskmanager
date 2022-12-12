@@ -1,4 +1,4 @@
-from cmdtaskmanager.comment.core import get_comment_by_id
+from .core import get_comment_by_id
 from .errors import InvalidCommentIdError
 from .display_core import display_comment as display_comment_fn
 from ..shared.display import display_error

@@ -1,3 +1,4 @@
+from sqlalchemy.sql.expression import desc
 from .errors import InvalidCommentIdError
 from .entities import Comment
 from ..task.core import get_task_by_id
@@ -39,3 +40,8 @@ def get_comment_by_id(comment_id):
     if not comment:
         raise InvalidCommentIdError()
     return comment
+
+def get_comments_by_task_id(task_id):
+    return session.query(Comment)               \
+        .order_by(desc(Comment.date_created))   \
+        .filter(Comment.task_id==task_id).all()
