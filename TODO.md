@@ -20,7 +20,7 @@
 ## Features to add
 - [1] Add comment feature
 - [5] Consider adding full path handling for the long description
-- [4] Search task by includes
+- [3] Search task by includes. It has to be included into display features.
 - [3] Show project tasks
 - [3] Show projects by tag
 - [2] Add status change commands (status-start-task, status-remove-task, etc)
