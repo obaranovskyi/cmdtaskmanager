@@ -4,6 +4,7 @@
 
 ## Todo list
 - [2] Add comment feature
+    - add comments to task display action
 - [3] Search task by includes. It has to be included into display features.
 - [3] Show project tasks
 - [3] Show tasks by tag
