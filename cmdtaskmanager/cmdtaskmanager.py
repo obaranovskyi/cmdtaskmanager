@@ -4,10 +4,12 @@ from .config.core import setup_config
 from .project.entities import *
 from .status.entities import *
 from .tag.entities import *
+from .comment.entities import *
 from .task.entities import *
 from .database.db_manager import db
 from .status.core import setup_base_statuses
 from .status.subparsers import register_status_subparsers
+from .comment.subparsers import register_comment_subparsers
 from .tag.subparsers import register_tag_subparsers
 from .project.subparsers import register_project_subparsers
 from .task.subparsers import register_task_subparsers
@@ -27,6 +29,7 @@ def register_subparsers():
     register_task_subparsers()
     register_tag_subparsers()
     register_status_subparsers()
+    register_comment_subparsers()
 
 def main():
     set_default_to_help()

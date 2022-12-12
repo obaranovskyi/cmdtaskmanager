@@ -1,9 +1,10 @@
 __all__ = [
-    'shared',
+    'comment',
     'config',
     'database',
-    'task',
     'project',
+    'shared',
+    'status',
     'tag',
-    'status'
+    'task',
 ]

@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy.sql.expression import and_, desc
+from sqlalchemy.sql.expression import desc
 from ..tag.core import get_tags_by_names_or_ids
 from ..shared.file_core import get_file_content
 from ..status.core import get_not_started, get_status_by_name_or_id
