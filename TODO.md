@@ -8,9 +8,11 @@
 - [5] Add predecessor and successor logic
 - [5] Add logging entity created/updated/removed
 - [1] Add `README.md` with examples of how to use the app
+- Improve long description
 
 ## Possible features to add
-- Schedule tasks
+- Schedule tasks (not sure about this since we already have finish date)
+- Show this year/month/day tasks
 - Calendar view
 - Trash 
 
