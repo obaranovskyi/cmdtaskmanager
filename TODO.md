@@ -15,6 +15,7 @@
 - [5] Add predecessor and successor logic
 - [10] Consider adding add status feature (more no than yes)
 - [5] Add logging entity created/updated/removed
+- [4] Add status change reason
 
 ## Important: investigate this approach: 
 - https://stackoverflow.com/questions/41270319/how-do-i-query-an-association-table-in-sqlalchemy

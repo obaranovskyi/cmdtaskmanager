@@ -8,6 +8,8 @@ from ..project.display_core import get_display_project_tree
 from ..status.display_core import get_display_status
 from ..shared.date_core import format_to_local_d, format_to_local_dt
 from ..shared.display import GREEN, BLUE, GREY, RED, YELLOW, no_items_yet
+import cmdtaskmanager.comment.core as comment_core
+import cmdtaskmanager.comment.display_core as comment_display_core
 
 
 def display_task(task):
@@ -29,6 +31,9 @@ def get_display_task_tree(task):
         task_tree.add(get_display_project_tree(task.project))
     if task.tags:
         task_tree.add(get_display_tags_tree(task.tags))
+    comments = comment_core.get_comments_by_task_id(task.id)
+    if comments:
+        task_tree.add(comment_display_core.get_comments_tree_for_task(comments))
     if task.long_description:
         task_tree.add(f'[{GREEN}] Long Description: \n')
         task_tree.add(Markdown(task.long_description))

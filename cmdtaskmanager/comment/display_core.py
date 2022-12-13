@@ -13,13 +13,14 @@ def get_display_comment_tree(comment, include_task_id=True):
     comment_tree = Tree(f"[{BLUE}] Comment:")
     comment_tree.add(f'[{GREEN}] Id: [{BLUE}]{comment.id}')
     comment_tree.add(f'[{GREEN}] Content: [{BLUE}]{comment.content}')
+    comment_tree.add(f'[{GREEN}] Commented: [{BLUE}]{format_to_local_dt(comment.date_created)}')
     if include_task_id:
         comment_tree.add(f'[{GREEN}] Task Id: [{BLUE}]{comment.task_id}')
     return comment_tree
 
 def display_comment_list(comments):
     if not comments:
-        return comments
+        return
     comments_table = Table('Id', style=GREY, header_style=YELLOW)
     comments_table.add_column('Comment', style=BLUE)
     comments_table.add_column(f'Commented', style=GREEN)
@@ -30,3 +31,15 @@ def display_comment_list(comments):
                 format_to_local_dt(c.date_created)
         )
     print(comments_table)
+
+def get_comments_tree_for_task(comments):
+    if not comments:
+        return
+    comments_tree = Tree(f"[{BLUE}] Comments:")
+    for c in comments:
+        comments_tree.add(
+            f'[{GREEN}][{c.id}] ' +
+            f'[{YELLOW}][{format_to_local_dt(c.date_created)}] ' +  
+            f'[{BLUE}]{c.content}')
+    return comments_tree
+    
