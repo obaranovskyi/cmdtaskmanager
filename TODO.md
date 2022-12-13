@@ -5,7 +5,6 @@
 ## Todo list
 - [5] Consider adding full path handling for the long description
 - [8] Consider adding the raw tasks display features for the piping
-- [2] Status of the project should be updated once one of its tasks is started
 - [5] Add predecessor and successor logic
 - [5] Add logging entity created/updated/removed
 
