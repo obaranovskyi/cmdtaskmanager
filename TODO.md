@@ -13,7 +13,6 @@
 - [10] Consider adding add status feature (more no than yes)
 - [5] Add logging entity created/updated/removed
 - [4] Update tag task view to be much more like the comments
-- [2] Add status change reason
 
 ## Important: investigate this approach: 
 - https://stackoverflow.com/questions/41270319/how-do-i-query-an-association-table-in-sqlalchemy
