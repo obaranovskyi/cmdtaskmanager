@@ -9,6 +9,9 @@ def display_task_list_subparser():
                           metavar='',
                           help="Amount of tasks to display.",
                           default=DEFAULT_DISPLAY_LIMIT)
+    display_task_list.add_argument('-t', '--title', type=str, required=False,
+                          metavar='',
+                          help="Search by title.")
     # tag exclusive group
     add_task_tags = display_task_list.add_mutually_exclusive_group(required=False)
     add_task_tags.add_argument('-tns', '--tag-names', type=str, required=False,

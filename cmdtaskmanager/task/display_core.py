@@ -47,6 +47,7 @@ def display_task_list(tasks):
     task_table = Table('Id', style=GREY, header_style=YELLOW)
     task_table.add_column('Title', style=GREEN)
     task_table.add_column('Priority', style=BLUE)
+    task_table.add_column('Description', style=BLUE)
     task_table.add_column('Status')
     task_table.add_column('Project', style=BLUE)
     task_table.add_column('Tags', style=GREEN)
@@ -59,6 +60,7 @@ def display_task_list(tasks):
             str(t.id),
             t.title,
             str(t.priority),
+            str(t.description),
             get_display_status(t.status),
             project_name,
             tags,
