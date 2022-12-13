@@ -4,7 +4,7 @@
 
 ## Todo list
 - [5] Consider adding full path handling for the long description
-- [8] Consider adding the raw tasks display features for the piping
+- [8] Consider adding import and export feature
 - [5] Add predecessor and successor logic
 - [5] Add logging entity created/updated/removed
 
