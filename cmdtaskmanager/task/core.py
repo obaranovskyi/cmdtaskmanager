@@ -112,18 +112,18 @@ def get_long_description_content(long_description):
         if long_description \
         else None
 
-def get_tasks_to_display(limit, title, project_name,
+def get_tasks_to_display(limit, title, description, project_name,
                          project_id, tag_names, tag_ids):
     query = session.query(Task)
     if project_id or project_name:
         query = query.filter(
-            or_(
-                Task.project_id==project_id,
-                Task.project.has(name=project_name)
-            )
+            or_(Task.project_id==project_id,
+                Task.project.has(name=project_name))
         )
     if title:
         query = query.filter(Task.title.ilike(f'%{title}%'))
+    if description:
+        query = query.filter(Task.description.ilike(f'%{description}%'))
     if tag_ids:
         from ..tag.entities import task_tag
         query = query.join(task_tag,

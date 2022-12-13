@@ -6,6 +6,7 @@ def display_task_list(args):
     tasks_to_display = get_tasks_to_display(
         limit=args.limit,
         title=args.title,
+        description=args.description,
         project_name=args.project_name,
         project_id=args.project_id,
         tag_names=args.tag_names,
