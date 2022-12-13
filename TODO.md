@@ -7,6 +7,7 @@
 - [8] Consider adding import and export feature
 - [5] Add predecessor and successor logic
 - [5] Add logging entity created/updated/removed
+- [1] Add `README.md` with examples of how to use the app
 
 ## Important: investigate this approach: 
 - https://stackoverflow.com/questions/41270319/how-do-i-query-an-association-table-in-sqlalchemy
