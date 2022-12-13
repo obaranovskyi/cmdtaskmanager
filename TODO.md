@@ -15,7 +15,7 @@
 - Show this year/month/day tasks
 - Show today's schedule
 - Calendar view
-- Show today's shedule (finish date | priority)
+- Show today's schedule (finish date | priority)
 - Add task for today/tomorrow/this week/etc
     - https://www.geeksforgeeks.org/python-calendar-module/
 - Trash 
