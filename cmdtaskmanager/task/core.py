@@ -1,5 +1,7 @@
 from datetime import datetime
 from sqlalchemy.sql.expression import desc, or_
+
+from cmdtaskmanager.status.consts import NOT_STARTED, REMOVED
 from ..tag.core import get_tags_by_names_or_ids
 from ..shared.file_core import get_file_content
 from ..status.core import get_not_started, get_status_by_name_or_id, get_status_by_name
@@ -63,6 +65,7 @@ def update_task(task_id, title, priority, description,
     task_to_update.description = description if description else task_to_update.description
     if status_name or status_id:
         task_to_update.status = get_status_by_name_or_id(status_name, status_id)
+        start_project_if_needed(task_to_update)
     if long_description:
         task_to_update.long_description = get_long_description_content(long_description)
     if project_id or project_name:
@@ -70,6 +73,7 @@ def update_task(task_id, title, priority, description,
     if tag_names or tag_ids:
         task_to_update.tags = get_tags_by_names_or_ids(tag_names, tag_ids)
     session.commit()
+
 
 def remove_task(task_id):
     """
@@ -90,6 +94,7 @@ def update_task_status(task_id, status_name):
     task_to_update = get_task_by_id(task_id)
     task_to_update.status = get_status_by_name(status_name)
     session.commit()
+    start_project_if_needed(task_to_update)
 
 def get_task_by_id(task_id):
     """
@@ -146,3 +151,8 @@ def get_tasks_by_tag_id(tag_id):
     tasks = query_task_tag.filter(task_tag.c.tag_id==tag_id)
     return tasks.all()
 
+def start_project_if_needed(task):
+    if task.status.name not in [NOT_STARTED.name, REMOVED.name] and \
+      (task.project and task.project.status.name == NOT_STARTED.name):
+        from ..project.core import start_project_by_id
+        start_project_by_id(task.project.id)

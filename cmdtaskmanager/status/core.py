@@ -1,6 +1,6 @@
 from sqlalchemy.sql.expression import asc
 from .errors import InvalidStatusIdError, InvalidStatusNameError
-from .consts import NOT_STARTED, STATUSES
+from .consts import IN_PROGRESS, NOT_STARTED, STATUSES
 from .entities import Status
 from ..database.db_manager import session
 
@@ -31,6 +31,9 @@ def get_status_by_name(name):
 
 def get_not_started():
     return get_status_by_name(NOT_STARTED.name)
+
+def get_in_progress():
+    return get_status_by_name(IN_PROGRESS.name)
 
 def get_statuses_to_display(limit):
     return session.query(Status).order_by(asc(Status.id)).limit(limit).all()

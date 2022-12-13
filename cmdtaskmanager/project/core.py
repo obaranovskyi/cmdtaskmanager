@@ -1,9 +1,10 @@
 from datetime import datetime
 from sqlalchemy.sql.expression import and_, desc
 from .errors import *
-from ..status.core import get_not_started, get_status_by_name_or_id
 from .entities import Project
 from ..database.db_manager import session
+from ..status.core import (get_in_progress, get_not_started,
+                           get_status_by_name_or_id)
 
 
 def create_project(name, description, finish_date):
@@ -96,4 +97,14 @@ def get_project_by_name_or_id(project_id, project_name):
     return get_project_by_name(project_name)
 
 def get_projects_to_display(limit):
-    return session.query(Project).order_by(desc(Project.date_created)).limit(limit).all()
+    return session.query(Project)               \
+        .order_by(desc(Project.date_created))   \
+        .limit(limit)                           \
+        .all()
+
+def start_project_by_id(project_id):
+    project = session.query(Project)            \
+        .filter(Project.id==project_id)         \
+        .one_or_none()
+    project.status = get_in_progress()
+    session.commit()
