@@ -2,7 +2,7 @@ from datetime import datetime
 from sqlalchemy.sql.expression import desc
 from ..tag.core import get_tags_by_names_or_ids
 from ..shared.file_core import get_file_content
-from ..status.core import get_not_started, get_status_by_name_or_id
+from ..status.core import get_not_started, get_status_by_name_or_id, get_status_by_name
 from ..project.core import get_project_by_name_or_id
 from ..database.db_manager import session
 from .entities import Task
@@ -78,6 +78,17 @@ def remove_task(task_id):
     """
     task = get_task_by_id(task_id)
     session.delete(task)
+    session.commit()
+
+
+def update_task_status(task_id, status_name):
+    """
+    Raises:
+        - `InvalidTaskIdError` - When the task with a given id doesn't exist.
+        - `InvalidStatusNameError` -- When a status with such a name doesn't exist.
+    """
+    task_to_update = get_task_by_id(task_id)
+    task_to_update.status = get_status_by_name(status_name)
     session.commit()
 
 def get_task_by_id(task_id):
