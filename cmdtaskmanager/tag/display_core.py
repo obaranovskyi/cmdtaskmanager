@@ -18,12 +18,6 @@ def get_display_tag_tree(tag):
     tag_tree.add(f'[{GREEN}] Date Created: [{BLUE}]{format_to_local_dt(tag.date_created)}')
     return tag_tree
 
-def get_display_tags_tree(tags):
-    tags_tree = Tree(f'[{BLUE}] Tags:')
-    for tag in tags:
-        tags_tree.add(get_display_tag_tree(tag))
-    return tags_tree
-    
 def display_tag_list(tags):
     if not tags:
         no_items_yet('tags')
@@ -38,3 +32,14 @@ def display_tag_list(tags):
             t.description,
         )
     print(tag_table)
+
+def get_tag_tree_for_task(tags):
+    if not tags:
+        return
+    tags_tree = Tree(f"[{BLUE}] Tags:")
+    for t in tags:
+        tags_tree.add(
+            f'[{GREEN}][{t.id}] ' +
+            f'[{BLUE}]{t.name}')
+    return tags_tree
+    

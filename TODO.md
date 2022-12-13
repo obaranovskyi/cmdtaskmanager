@@ -14,6 +14,7 @@
 - Schedule tasks (not sure about this since we already have finish date)
 - Show this year/month/day tasks
 - Calendar view
+    - https://www.geeksforgeeks.org/python-calendar-module/
 - Trash 
 
 ## Important: investigate this approach: 

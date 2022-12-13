@@ -3,7 +3,7 @@ from rich.markdown import Markdown
 from rich.tree import Tree
 from rich.table import Table
 from ..shared.consts import EMPTY_TABLE_CELL
-from ..tag.display_core import get_display_tags_tree
+from ..tag.display_core import get_tag_tree_for_task
 from ..project.display_core import get_display_project_tree
 from ..status.display_core import get_display_status
 from ..shared.date_core import format_to_local_d, format_to_local_dt
@@ -30,7 +30,7 @@ def get_display_task_tree(task):
     if task.project:
         task_tree.add(get_display_project_tree(task.project))
     if task.tags:
-        task_tree.add(get_display_tags_tree(task.tags))
+        task_tree.add(get_tag_tree_for_task(task.tags))
     comments = comment_core.get_comments_by_task_id(task.id)
     if comments:
         task_tree.add(comment_display_core.get_comments_tree_for_task(comments))
