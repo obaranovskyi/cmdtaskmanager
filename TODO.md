@@ -9,6 +9,11 @@
 - [5] Add logging entity created/updated/removed
 - [1] Add `README.md` with examples of how to use the app
 
+## Possible features to add
+- Schedule tasks
+- Calendar view
+- Trash 
+
 ## Important: investigate this approach: 
 - https://stackoverflow.com/questions/41270319/how-do-i-query-an-association-table-in-sqlalchemy
 - need to revisit, and understand it more
