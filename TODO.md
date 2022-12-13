@@ -10,7 +10,6 @@
 - [8] Consider adding the raw tasks display features for the piping
 - [2] Status of the project should be updated once one of its tasks is started
 - [5] Add predecessor and successor logic
-- [10] Consider adding add status feature (more no than yes)
 - [5] Add logging entity created/updated/removed
 - [4] Update tag task view to be much more like the comments
 
