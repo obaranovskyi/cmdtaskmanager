@@ -12,3 +12,8 @@
 ./run add-task 'Task 1' -d 'Task 1 description' -fd '2023-10-30' -pi 1 -ld 'TODO.md'
 ./run add-task 'Task 2' -d 'Task 2 description' -fd '2023-01-17' -pi 1 -tns 'important' 'home-work'
 ./run add-task 'Task 3' -d 'Task 3 description' -fd '2023-12-02' -pi 2
+
+# Add comments
+./run add-comment 1 'Comment 1'
+./run add-comment 1 'Comment 2'
+./run add-comment 1 'Comment 3'
