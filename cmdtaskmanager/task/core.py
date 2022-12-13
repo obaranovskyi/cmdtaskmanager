@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy.sql.expression import desc
+from sqlalchemy.sql.expression import desc, or_
 from ..tag.core import get_tags_by_names_or_ids
 from ..shared.file_core import get_file_content
 from ..status.core import get_not_started, get_status_by_name_or_id, get_status_by_name
@@ -112,8 +112,19 @@ def get_long_description_content(long_description):
         if long_description \
         else None
 
-def get_tasks_to_display(limit):
-    return session.query(Task).order_by(desc(Task.date_created)).limit(limit).all()
+def get_tasks_to_display(limit, project_name, project_id):
+    query = session.query(Task)
+    if project_id or project_name:
+        query = query.filter(
+            or_(
+                Task.project_id==project_id,
+                Task.project.has(name=project_name)
+            )
+        )
+    return query                            \
+        .order_by(desc(Task.date_created))  \
+        .limit(limit)                       \
+        .all()
 
 def get_tasks_by_project_id(project_id):
     return session.query(Task).filter(Task.project.has(id=project_id)).all()

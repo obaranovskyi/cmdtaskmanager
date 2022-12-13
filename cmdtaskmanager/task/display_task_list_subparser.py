@@ -9,6 +9,12 @@ def display_task_list_subparser():
                           metavar='',
                           help="Amount of tasks to display.",
                           default=DEFAULT_DISPLAY_LIMIT)
-    # TODO: Here should be added the query functionality
-    # to display task by project, priority, project and priority etc.
+    # project exclusive group
+    add_task_project = display_task_list.add_mutually_exclusive_group(required=False)
+    add_task_project.add_argument('-pn', '--project-name', type=str, required=False,
+                          metavar='',
+                          help='Search by project name.')
+    add_task_project.add_argument('-pi', '--project-id', type=int, required=False,
+                          metavar='',
+                          help='Search by project id.')
     display_task_list.set_defaults(func=display_task_list_handler)
