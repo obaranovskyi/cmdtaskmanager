@@ -112,7 +112,8 @@ def get_long_description_content(long_description):
         if long_description \
         else None
 
-def get_tasks_to_display(limit, project_name, project_id):
+def get_tasks_to_display(limit, project_name, project_id,
+                         tag_names, tag_ids):
     query = session.query(Task)
     if project_id or project_name:
         query = query.filter(
@@ -121,6 +122,14 @@ def get_tasks_to_display(limit, project_name, project_id):
                 Task.project.has(name=project_name)
             )
         )
+    if tag_ids:
+        from ..tag.entities import task_tag
+        query = query.join(task_tag,
+            (Task.id == task_tag.c.task_id) & (task_tag.c.tag_id.in_(tag_ids)))
+    if tag_names:
+        from ..tag.entities import task_tag, Tag
+        query = query.join(task_tag).join(Tag,
+            (Tag.id == task_tag.c.tag_id) & (Tag.name.in_(tag_names)))
     return query                            \
         .order_by(desc(Task.date_created))  \
         .limit(limit)                       \
@@ -134,3 +143,4 @@ def get_tasks_by_tag_id(tag_id):
     query_task_tag = session.query(Task).join(task_tag).join(Tag)
     tasks = query_task_tag.filter(task_tag.c.tag_id==tag_id)
     return tasks.all()
+

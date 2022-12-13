@@ -57,8 +57,9 @@ def get_or_create_tag(tag_name):
 def get_or_create_tags(tag_names=[]):
     tags = []
     for tn in tag_names:
-        tag = get_or_create_tag(tn)
-        tags.append(tag)
+        if tn:
+            tag = get_or_create_tag(tn)
+            tags.append(tag)
     return tags
 
 def get_tags_by_names_or_ids(tag_names, tag_ids):

@@ -28,7 +28,7 @@ def add_task_subparser():
     add_task_tags.add_argument('-tns', '--tag-names', type=str, required=False,
                           metavar='', nargs='*', 
                           help='Related tag names.')
-    add_task_tags.add_argument('-tis', '--tag-ids', type=str, required=False,
+    add_task_tags.add_argument('-tis', '--tag-ids', type=int, required=False,
                           metavar='', nargs='*', 
                           help='Related tag ids.')
     # project exclusive group
