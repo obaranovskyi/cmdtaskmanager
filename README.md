@@ -211,6 +211,12 @@ remove-tag 2
 ![](./images/tag-notification.png)
 
 
+### Dependencies
+
+We use [`rich`](https://rich.readthedocs.io/) to show everything nicely in the terminal.
+We use [`sqlalchemy`](https://www.sqlalchemy.org/) to store the data in the database.
 
 
+### License
 
+This project is licensed under the terms of the MIT license.
