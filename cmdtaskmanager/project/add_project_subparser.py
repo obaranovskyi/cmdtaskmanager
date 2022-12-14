@@ -5,9 +5,7 @@ from ..shared.parser import subparsers
 
 def add_project_subparser():
     add_project = subparsers.add_parser('add-project', help='Add project.')
-    add_project.add_argument('-n', '--name', type=str,
-                          metavar='',
-                          help='Project name.')
+    add_project.add_argument('name', type=str, help='Project name.')
     add_project.add_argument('-d', '--description', type=str, required=False,
                           metavar='',
                           help='Project description.')

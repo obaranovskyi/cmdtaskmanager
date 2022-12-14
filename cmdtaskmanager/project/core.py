@@ -13,7 +13,7 @@ def create_project(name, description, finish_date):
         - `InvalidProjectFinishDateError` -- When the project finish date isn't later than now.
         - `ProjectNameAlreadyExists` -- When a project with such a name already exists.
     """
-    if finish_date < datetime.now():
+    if finish_date and finish_date < datetime.now():
         raise InvalidProjectFinishDateError()
     exists = session.query(Project).filter(Project.name==name).one_or_none()
     if exists:
