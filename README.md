@@ -215,6 +215,7 @@ remove-tag 2
 
 - We use [`rich`](https://rich.readthedocs.io/) to show everything nicely in the terminal.
 - We use [`sqlalchemy`](https://www.sqlalchemy.org/) to store the data in the database.
+- We use [`pytz`](https://pythonhosted.org/pytz/) to work with the dates.
 
 
 ### License
