@@ -148,5 +148,64 @@ display-comment-list 1
 ![](./images/display-comment-list.png)
 
 or we can display task details and see comments there:
+
 ![](./images/display-comments-in-a-task.png)
+
+## Adding Tags
+To add a tag run:
+```bash
+add-tag 'important' -d 'Something that has to be done quickly.'
+add-tag 'test'
+```
+To display all available tags:
+```bash
+display-tag-list
+```
+![](./images/display-tag-list.png)
+
+Adding tags to task
+```bash
+task-update 1 -tis 1 2
+```
+To check whether you've added the tags to the task, display task details:
+```bash
+display-task 1
+```
+![](./images/display-task-with-tags.png)
+
+**Note** It's possible to add tags using names instead of ids.
+```bash
+update-task 1 -tns 'important' 'test'
+```
+
+There is an even more straightforward way to add tags to tasks.
+When you're adding a new task, you can add tags. 
+If the tag doesn't exist, it'll be automatically added:
+```bash
+add-task 'Make a coffee' -d 'But the last one for today.' -tns 'not important' 'later'
+```
+If you run `display-tag-list`, you'll see them on the list:
+
+![](./images/display-tag-list-task-add.png)
+
+if you run `display-task-list`, you'll see a new task with the tags you've provided:
+
+![](./images/display-task-details-with-tags.png)
+
+
+To remove tags from task, run this command:
+```bash
+update-task 1 -tns ''
+```
+To remove tag from the system:
+```bash
+remove-tag 2
+```
+**Note**: If some tasks used a tag, you would be notified to update the task first due to dependency.
+
+![](./images/tag-notification.png)
+
+
+
+
 

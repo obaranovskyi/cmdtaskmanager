@@ -33,7 +33,7 @@ def update_task_subparser():
     update_task_tags.add_argument('-tns', '--tag-names', type=str, required=False,
                                        metavar='', nargs='*', 
                                        help='Related tag names.')
-    update_task_tags.add_argument('-tis', '--tag-ids', type=str, required=False,
+    update_task_tags.add_argument('-tis', '--tag-ids', type=int, required=False,
                                        metavar='', nargs='*', 
                                        help='Related tag ids.')
     # project exclusive group

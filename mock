@@ -19,9 +19,23 @@
 # ./run add-comment 1 'Comment 3'
 
 
+# adding projects
 ./run add-project 'Homework' -d 'Under this project, I do my homework.' -fd '2025-01-01'
 ./run add-project 'My Real Company' -d 'Here I keep the tasks related to my future company.'
 
-
+# adding tasks 
 ./run add-task 'Go to the store'
 ./run add-task 'Clean up the room' -pi 1 -d 'No rush with this'
+
+# adding comments
+./run add-comment 1 "It's better not to postpone this."
+./run add-comment 1 "At least, I think so."
+
+# adding tags
+./run add-tag 'important' -d 'Something that has to be done quickly.'
+./run add-tag 'test'
+
+./run task-update 1 -tis 1 2
+
+# Add task with the tags
+add-task 'Make a coffee' -d 'But the last one for today.' -tns 'not important' 'later'
