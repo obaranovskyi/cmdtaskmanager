@@ -60,7 +60,7 @@ def display_task_list(tasks):
             str(t.id),
             t.title,
             str(t.priority),
-            str(t.description),
+            str(t.description) if t.description else EMPTY_TABLE_CELL,
             get_display_status(t.status),
             project_name,
             tags,
