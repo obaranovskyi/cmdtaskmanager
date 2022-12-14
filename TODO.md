@@ -7,7 +7,7 @@
 - [8] Consider adding import and export feature
 - [5] Add predecessor and successor logic
 - [5] Add logging entity created/updated/removed
-- [1] Add `README.md` with examples of how to use the app
+- [1] Add querying examples
 - Improve long description
 
 ## Possible features to add
