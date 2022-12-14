@@ -130,3 +130,23 @@ Set task status to 'Removed':
 ```bash
 remove-task 1
 ```
+
+## Adding comments
+It's possible to add a comment to task:
+```bash
+add-comment 1 "It's better not to postpone this."
+add-comment 1 "At least, I think so."
+```
+`1` is a task id
+
+We can display comments in the table:
+```bash
+display-comment-list 1
+```
+`1` is a task id
+
+![](./images/display-comment-list.png)
+
+or we can display task details and see comments there:
+![](./images/display-comments-in-a-task.png)
+
