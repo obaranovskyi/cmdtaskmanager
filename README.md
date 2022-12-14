@@ -72,6 +72,38 @@ display-task 2
 
 ![](./images/display-task.png)
 
+## Display tasks by search criteria
+To show only project related tasks, run the following command:
+```bash
+display-task-list -pi 1
+```
+Where `1` is a project id
+![](./images/search-by-project.png)
+
+To show only tag related tasks, run:
+```bash
+display-task-list -tns 'important'
+```
+![](./images/search-by-tag.png)
+
+**Note** It's possible to search by multiple tag ids or names.
+
+To search by title, run:
+```bash
+display-task-list -t 'make a'
+```
+
+![](./images/search-by-title.png)
+
+To search by description, run:
+```bash
+display-task-list -d 'no'
+```
+
+![](./images/search-by-description.png)
+
+**Important** It is possible to combine multiple search criteria.
+
 ## Changing statuses
 
 #### To display system available statuses:
