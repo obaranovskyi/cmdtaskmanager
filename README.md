@@ -151,6 +151,11 @@ or we can display task details and see comments there:
 
 ![](./images/display-comments-in-a-task.png)
 
+to remove the comment, run:
+```bash
+remove-comment 2
+```
+
 ## Adding Tags
 To add a tag run:
 ```bash
