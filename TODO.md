@@ -7,6 +7,8 @@
     - Show what's in the trash
     - Clean the Trash
     - Don't show tasks with the removed state
+- [1] Add full task remove
+- [1] Add shortcuts for the main commands
 - [5] Consider adding full path handling for the long description
 - [8] Consider adding import and export feature
 - [5] Add predecessor and successor logic
