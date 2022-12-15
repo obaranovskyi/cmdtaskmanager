@@ -15,7 +15,7 @@
 - Show today's schedule
 - Show today's schedule (finish date | priority)
 - Add task for today/tomorrow/this week/etc
-- Trash 
+- Trash
 
 ## Important: investigate this approach: 
 - https://stackoverflow.com/questions/41270319/how-do-i-query-an-association-table-in-sqlalchemy
