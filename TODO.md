@@ -7,7 +7,7 @@
 - [8] Consider adding import and export feature
 - [5] Add predecessor and successor logic
 - [5] Add logging entity created/updated/removed
-- [4] Improve long description
+- [4] Improve long description usage
 
 ## Possible features to add
 - Schedule tasks (not sure about this since we already have finish date)
