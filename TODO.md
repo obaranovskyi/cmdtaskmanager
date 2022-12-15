@@ -3,6 +3,10 @@
     - https://stackoverflow.com/questions/1316952/sqlalchemy-flush-and-get-inserted-id
 
 ## Todo list
+- [1] Trash features
+    - Show what's in the trash
+    - Clean the Trash
+    - Don't show tasks with the removed state
 - [5] Consider adding full path handling for the long description
 - [8] Consider adding import and export feature
 - [5] Add predecessor and successor logic
@@ -15,7 +19,6 @@
 - Show today's schedule
 - Show today's schedule (finish date | priority)
 - Add task for today/tomorrow/this week/etc
-- Trash
 
 ## Important: investigate this approach: 
 - https://stackoverflow.com/questions/41270319/how-do-i-query-an-association-table-in-sqlalchemy
