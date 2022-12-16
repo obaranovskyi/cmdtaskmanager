@@ -2,6 +2,10 @@
 
 `cmdtaskmanager` is a simple task manager. 
 
+## Installation
+```bash
+curl -s https://raw.githubusercontent.com/obaranovskyi/cmdtaskmanager/main/install.sh | bash /dev/stdin
+```
 
 ## Adding a project
 On top of the hierarchy stands the project, where you can include tasks. 
